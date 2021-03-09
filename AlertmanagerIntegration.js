@@ -21,6 +21,12 @@ class Script {
             };
 
             finFields.push(elem);
+            
+            finFields.push({
+              title: "Alertmanager",
+              value: request.content.externalURL
+            });
+            
 
             if (!!endVal.annotations.summary) {
                 finFields.push({
