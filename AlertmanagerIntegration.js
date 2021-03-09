@@ -45,8 +45,15 @@ class Script {
             
             if (!!endVal.annotations.message) {
                 finFields.push({
-                    title: "message",
+                    title: "Message",
                     value: endVal.annotations.message
+                });
+            }
+            
+            if (!!endVal.annotations.runbook_url) {
+                finFields.push({
+                    title: "Help",
+                    value: endVal.annotations.runbook_url
                 });
             }
             
