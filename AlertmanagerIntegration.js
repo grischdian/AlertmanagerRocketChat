@@ -16,7 +16,7 @@ class Script {
             var endVal = request.content.alerts[i];
             var elem = {
                 title: "alertname: " + endVal.labels.alertname,
-                value: "*instance:* " + endVal.labels.instance,
+                value: "*Prometheus:* " + endVal.labels.prometheus,
                 short: false
             };
 
@@ -24,25 +24,35 @@ class Script {
 
             if (!!endVal.annotations.summary) {
                 finFields.push({
-                    title: "summary",
+                    title: "Summary",
                     value: endVal.annotations.summary
                 });
             }
 
             if (!!endVal.annotations.severity) {
                 finFields.push({
-                    title: "severity",
+                    title: "Severity",
                     value: endVal.annotations.severity
                 });
             }
 
             if (!!endVal.annotations.description) {
                 finFields.push({
-                    title: "description",
+                    title: "Description",
                     value: endVal.annotations.description
                 });
             }
+            
+            if (!!endVal.annotations.message) {
+                finFields.push({
+                    title: "message",
+                    value: endVal.annotations.message
+                });
+            }
+            
+            
         }
+        
 
         return {
             content: {
